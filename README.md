@@ -18,4 +18,4 @@ La version Delphi du serveur est disponible à [cette adresse](https://github.co
 if (("127.0.0.1" == $_SERVER["SERVER_ADDR"]) || ("::1" == $_SERVER["SERVER_ADDR"])) {
 * dans la ligne de connexion, ajouter le SET NAMES UTF8 pour MySQL/MariaDB (au cas où) :
 $db = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=UTF8",DB_USER,DB_PASS,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-
+* remplacer les dirname(__FILE__) par __DIR__
