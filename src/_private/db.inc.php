@@ -4,10 +4,15 @@
 		exit;
 	}
 
-	require_once(dirname(__FILE__)."/config.inc.php");
+	if (("127.0.0.1" == $_SERVER["SERVER_ADDR"]) || ("::1" == $_SERVER["SERVER_ADDR"])) {
+		require_once(__DIR__."/config-dev.inc.php");
+	}
+	else {
+		require_once(__DIR__."/config-prod.inc.php");
+	}
 
 	try {
-		$db = new PDO("mysql:dbname=".DB_NAME.";host=".DB_HOST.";charset=UTF8", DB_USER, DB_PWD);
+		$db = new PDO("mysql:dbname=".DB_NAME.";host=".DB_HOST.";charset=UTF8", DB_USER, DB_PWD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 	}
 	catch (PDOException $e) {
 		http_response_code(503);

@@ -5,6 +5,14 @@
 		http_response_code(404);
 		exit;
 	}
+	
+	if (("127.0.0.1" == $_SERVER["SERVER_ADDR"]) || ("::1" == $_SERVER["SERVER_ADDR"])) {
+		require_once(__DIR__."/CCTRBPrivateKey-dev.inc.php");
+	}
+	else {
+		require_once(__DIR__."/CCTRBPrivateKey-prod.inc.php");
+	}
+
 
 	// return a checksum value for "verif" URL param
 	function getVerifChecksum($param, $key1="", $key2="", $key3="", $key4="", $key5="", $public=true)
@@ -35,5 +43,7 @@
 		{
 			$verif = $_GET["verif"];
 		}
+		// print($verif."\n");
+		// print(getVerifChecksum($param, $key1, $key2, $key3, $key4, $key5, false)."\n");
 		return (false !== strpos(getVerifChecksum($param, $key1, $key2, $key3, $key4, $key5, false),$verif));
 	}

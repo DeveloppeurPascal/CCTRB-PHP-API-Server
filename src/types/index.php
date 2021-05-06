@@ -4,7 +4,7 @@
 
 	define("CCTRB","D870DCC7-2666-46C5-A1ED-CDA9E7D6F71B");
 	
-	require_once(dirname(__FILE__)."/../_private/db.inc.php");
+	require_once(__DIR__."/../_private/db.inc.php");
 
 	$result = array();
 

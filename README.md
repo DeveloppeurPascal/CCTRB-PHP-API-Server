@@ -12,10 +12,14 @@ La version Delphi du serveur est disponible à [cette adresse](https://github.co
 
 * sur connexion à la base de données, renvoyer un code d'erreur HTTP spécifique en cas d'anomalie
 * sur les différentes API, renvoyer un code d'erreur si la base est KO
-* tester etbadd et faire API suivantes (etb + cli)
-* changer les index en redirection vers ../ sur les dossiers à protéger
-* dans le fichier de configuration, pour le choix de la base de données, ajouter un test en fonction de l'IP locale et fixer les paramètres de la base publique :
-if (("127.0.0.1" == $_SERVER["SERVER_ADDR"]) || ("::1" == $_SERVER["SERVER_ADDR"])) {
-* dans la ligne de connexion, ajouter le SET NAMES UTF8 pour MySQL/MariaDB (au cas où) :
-$db = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=UTF8",DB_USER,DB_PASS,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-* remplacer les dirname(__FILE__) par __DIR__
+
+-----
+
+Si besoin de tester quelque chose (dump en développement), inclure le fichier log.inc.php :
+require_once(__DIR__."/../_private/log.inc.php");
+
+L'ajout de lignes dans la log se fait par la fonction log_add().
+
+Le stockage et l'activation de font par les directives disponibles dans le fichier _private/configlog-dev.inc.php
+
+-----
