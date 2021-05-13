@@ -6,9 +6,11 @@
 
 	define("CCTRB","D870DCC7-2666-46C5-A1ED-CDA9E7D6F71B");
 
-	if (isset($_GET["IDClient"])) {
+	// require_once(__DIR__."/../_private/log.inc.php");
+
+	if (isset($_GET["c"])) {
 		try {
-			$IDClient = $_GET["IDClient"]*1;
+			$IDClient = $_GET["c"]*1;
 		}
 		catch (Exception $e) {
 			http_response_code(400);

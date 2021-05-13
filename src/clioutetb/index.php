@@ -6,9 +6,9 @@
 
 	define("CCTRB","D870DCC7-2666-46C5-A1ED-CDA9E7D6F71B");
 
-	if (isset($_GET["IDClient"])) {
+	if (isset($_GET["c"])) {
 		try {
-			$IDClient = $_GET["IDClient"]*1;
+			$IDClient = $_GET["c"]*1;
 		}
 		catch (Exception $e) {
 			http_response_code(400);
@@ -24,9 +24,9 @@
 		exit;
 	}
 
-	if (isset($_GET["IDEtablissement"])) {
+	if (isset($_GET["i"])) {
 		try {
-			$IDEtablissement = $_GET["IDEtablissement"]*1;
+			$IDEtablissement = $_GET["i"]*1;
 		}
 		catch (Exception $e) {
 			http_response_code(400);
