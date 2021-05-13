@@ -13,7 +13,6 @@ La version Delphi du serveur est disponible à [cette adresse](https://github.co
 * sur connexion à la base de données, renvoyer un code d'erreur HTTP spécifique en cas d'anomalie
 * sur les différentes API, renvoyer un code d'erreur si la base est KO
 * impacter les "cas contact" sur la base de données d'historiques lors de l'API deccovidplus
-* tester les API clients IN/OUT/CAS/DECLARATION
 
 -----
 
